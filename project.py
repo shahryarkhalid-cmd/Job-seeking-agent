@@ -133,11 +133,11 @@ def agent(tools , checkpointer):
         result = await chat_model.ainvoke([RESEARCH_PARSER_PROMPT, HumanMessage(content=user_content)])
         final_result = explicit_output_parser(result.content, company)
         formatted = f"""
-            🏢 Company: {final_result.name} \n
-            💼 Role: {final_result.role} \n
-            🌍 Type: {final_result.type} \n
-            🔗 URL: {final_result.url} \n
-            📧 Email: {final_result.email or 'Not provided'}
+             Company: {final_result.name} \n
+             Role: {final_result.role} \n
+             Type: {final_result.type} \n
+             URL: {final_result.url} \n
+             Email: {final_result.email or 'Not provided'}
             """
         return {'Company': final_result, 'messages': [AIMessage(content=formatted)]}
 
